@@ -54,7 +54,6 @@
 			"create(address,uint256,string)": "69fc551a",
 			"creators(uint256)": "cd53d08e",
 			"isApprovedForAll(address,address)": "e985e9c5",
-			"mint(address,uint256,uint256)": "156e29f6",
 			"name()": "06fdde03",
 			"owner()": "8da5cb5b",
 			"renounceOwnership()": "715018a6",
@@ -325,29 +324,6 @@
 				}
 			],
 			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_to",
-					"type": "address"
-				},
-				{
-					"internalType": "uint256",
-					"name": "_id",
-					"type": "uint256"
-				},
-				{
-					"internalType": "uint256",
-					"name": "_quantity",
-					"type": "uint256"
-				}
-			],
-			"name": "mint",
-			"outputs": [],
-			"stateMutability": "nonpayable",
 			"type": "function"
 		},
 		{

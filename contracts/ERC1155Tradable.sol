@@ -52,13 +52,13 @@ abstract contract ERC1155Tradable is ERC1155, Ownable {
         return _id;
     }
 
-    function mint(
-        address _to,
-        uint256 _id,
-        uint256 _quantity
-    ) public creatorOnly(_id) {
-        _mint(_to, _id, _quantity, "");
-        tokenSupply[_id] = tokenSupply[_id].add(_quantity);
-    }
+    // function mint(
+    //     address _to,
+    //     uint256 _id,
+    //     uint256 _quantity
+    // ) public creatorOnly(_id) {
+    //     _mint(_to, _id, _quantity, "");
+    //     tokenSupply[_id] = tokenSupply[_id].add(_quantity);
+    // }
 
 }

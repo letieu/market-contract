@@ -22,6 +22,55 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum Exchange.SaleType",
+						"name": "_type",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_endTime",
+						"type": "uint256"
+					}
+				],
+				"name": "ItemUpdated",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -46,7 +95,41 @@
 				],
 				"name": "buy",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "fixedItems",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -73,6 +156,53 @@
 					}
 				],
 				"name": "putOnSale",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "saleType",
+				"outputs": [
+					{
+						"internalType": "enum Exchange.SaleType",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "takeOffSale",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -130,11 +260,11 @@
 			]
 		},
 		"contracts/Exchange.sol": {
-			"keccak256": "0x3efdfda879f7306131da778e93f705460e365f9b1cbe0081690ef6b8fa75f4ec",
+			"keccak256": "0x898b370f398afe94a76670140343fb5251f84a7603b0c4c505348f280f5cf45a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4485eb8d549be76103596d3ead578938570d150cf728511e8e823d176dc7357e",
-				"dweb:/ipfs/QmWdZK2B5AZzSzvCb49czSH95x7XvLNYjXH4Box15r3qz7"
+				"bzz-raw://f8c29e2a1b7943bfa6d451aa77af7fec6e8766a82d29618d043590fae41303e2",
+				"dweb:/ipfs/QmYUUjhqfLjqiYctpSY9dimHoGp789C9giEJLT6J3SMdQC"
 			]
 		}
 	},

@@ -263,29 +263,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_to",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_quantity",
-						"type": "uint256"
-					}
-				],
-				"name": "mint",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -552,7 +529,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/ERC1155Collection.sol": "ERC1155Tradable"
+			"contracts/ERC1155Tradable.sol": "ERC1155Tradable"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -654,12 +631,12 @@
 				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
 			]
 		},
-		"contracts/ERC1155Collection.sol": {
-			"keccak256": "0x12545bc3c4177ff8f34c4f4531701952beb6e08f81fba5187480ebdf79970762",
+		"contracts/ERC1155Tradable.sol": {
+			"keccak256": "0xaefe9dfc4ffee5e92cb3d126e545f58b36916b7e956359e17ff68e1da729b866",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c466011d163412ec275506f2dccb5d1315fd1acf537d7f04e133de63822d1770",
-				"dweb:/ipfs/QmYjLSzBZZevN2TPMzz6D6AJhx4fZ3mnLZU9peykdgTnUN"
+				"bzz-raw://7a7350f60f379f837e1c5ebc72b0831cea23e95076a78126c4a549ecab1cb3f2",
+				"dweb:/ipfs/QmawFgzujRuaurgWnKsuKpkukXuE7LBs6D5DeNSh5jAzzB"
 			]
 		}
 	},

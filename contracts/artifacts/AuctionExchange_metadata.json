@@ -22,6 +22,141 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_bidder",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "BidAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum Exchange.SaleType",
+						"name": "_type",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_endTime",
+						"type": "uint256"
+					}
+				],
+				"name": "ItemUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "auctionItems",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxBid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "maxBidder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "ended",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -37,16 +172,40 @@
 						"internalType": "address",
 						"name": "_seller",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
 					}
 				],
 				"name": "bid",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "bidValues",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -74,7 +233,64 @@
 				],
 				"name": "buy",
 				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_seller",
+						"type": "address"
+					}
+				],
+				"name": "endAuction",
+				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "fixedItems",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -142,6 +358,35 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "saleType",
+				"outputs": [
+					{
+						"internalType": "enum Exchange.SaleType",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "_address",
 						"type": "address"
 					},
@@ -149,11 +394,24 @@
 						"internalType": "uint256",
 						"name": "_id",
 						"type": "uint256"
-					},
+					}
+				],
+				"name": "takeOffSale",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_seller",
+						"name": "_address",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
 					}
 				],
 				"name": "withDraw",
@@ -214,19 +472,19 @@
 			]
 		},
 		"contracts/AuctionExchange.sol": {
-			"keccak256": "0x6c2ea5c8aca352b42bc1f0e88c740798ecd6ad11429ea844dea5d63e24cdee9d",
+			"keccak256": "0x672c4efa1d3395c4725dcd1eafcc4b1b6e6cc07b92c988e0d8b2833827023790",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ca78a8d4126614214b319c18e1a1ce320776db260ab27df99faa007a4be64caa",
-				"dweb:/ipfs/QmNqtUnfnGbrBDDzqNDvBRgLUoZ9D1oycBcBWpM2Yh3X3T"
+				"bzz-raw://f333ebb734f205490ae6ab7941e73cb11489b932b57eacf62e92f05f9faaf9c5",
+				"dweb:/ipfs/QmcqbCTV1ckX5rxaFj9UtqcHkqwUT5MkbTUP6cXyh5EFyQ"
 			]
 		},
 		"contracts/Exchange.sol": {
-			"keccak256": "0xef11e3c5b40159ce59b09a3273db6747b95c90c367effa90b0c28670dc0ea637",
+			"keccak256": "0x898b370f398afe94a76670140343fb5251f84a7603b0c4c505348f280f5cf45a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://72aac1620d9fd1a24ac4f992f4cf70d0b7cd9a50eafa3c829bd2ec6e4a994410",
-				"dweb:/ipfs/QmdPMC5GnnQAqxGjUcyNZRoeAKGozjKo3bUq1Zs8JWxKME"
+				"bzz-raw://f8c29e2a1b7943bfa6d451aa77af7fec6e8766a82d29618d043590fae41303e2",
+				"dweb:/ipfs/QmYUUjhqfLjqiYctpSY9dimHoGp789C9giEJLT6J3SMdQC"
 			]
 		}
 	},

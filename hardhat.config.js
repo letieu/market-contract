@@ -17,5 +17,9 @@ module.exports = {
       url: process.env.CRONOS_TEST_URL,
       accounts: [`0x${process.env.PRIVATE_KEY}`]
     },
+    ropstent: {
+      url: process.env.ROPSTEN_URL,
+      accounts: [`0x${process.env.PRIVATE_KEY}`]
+    },
   }
 };

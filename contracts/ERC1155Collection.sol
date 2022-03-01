@@ -33,7 +33,7 @@ contract ERC1155Collection is ERC1155Tradable, ICollectionRoyalty {
         return creators[_id];
     }
 
-    function getDecimal() public view returns(uint256) {
+    function getDecimal() public override view returns(uint256) {
         return decimal;
     }
 }

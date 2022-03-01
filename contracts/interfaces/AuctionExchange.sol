@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "./Exchange.sol";
 
-contract AuctionExchange is Exchange {
+abstract contract AuctionExchange is Exchange {
     using SafeMath for uint;
 
     struct Auction {
@@ -17,12 +17,10 @@ contract AuctionExchange is Exchange {
     // token address => token ID => seller => value
     mapping(address => mapping(uint => mapping(address => Auction))) public auctionItems;
     // token address => token ID => seller => bidder => value
-    mapping(address => mapping(uint => mapping(address => address))) public bidValues;
+    mapping(address => mapping(uint => mapping(address => mapping(address => uint)))) public bidValues;
 
     event BidAdded(address _address, uint256 _id, address _seller, address _bidder, uint256 _value);
     event Withdrawn(address _address, uint256 _id, address _seller, address _bidder, uint256 _value);
-
-    constructor(address _payee, uint _fee) Exchange(_payee, _fee) {}
 
     // Auction sale
     function putOnSale(address _address, uint _id, uint _amount, uint _minPrice, uint _endTime)
@@ -63,7 +61,7 @@ contract AuctionExchange is Exchange {
         require(tokenContract.balanceOf(_seller, _id) >= auctionItems[_address][_id][_seller].amount, "Seller not enough token supply"); // TODO: if not enough, refund
 
         tokenContract.safeTransferFrom(_seller, msg.sender, _id, auctionItems[_address][_id][_seller].amount, "");
-        // Pay for creator and marketplace
+        payout(_address, _id, payable(_seller), auctionItems[_address][_id][_seller].maxBid);
     }
 
     function withDraw(address _address, uint _id, address _seller) external {

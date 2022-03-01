@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-contract Exchange {
+abstract contract Exchange {
     using SafeMath for uint;
 
     enum SaleType{ FIXED, AUCTION }
@@ -15,9 +15,6 @@ contract Exchange {
     // Token address -> tokenId -> seller -> SaleType
     mapping(address => mapping(uint => mapping(address => SaleType))) public saleType;
     mapping(address => mapping(uint => mapping(address => Sale))) public fixedItems;
-
-    address marketPayee;
-    uint marketFeePercent;
 
     event ItemUpdated(address _address, uint256 _id, address _seller, uint256 _amount, uint256 _price, SaleType _type, uint256 _endTime);
 
@@ -31,11 +28,6 @@ contract Exchange {
         IERC1155 tokenContract = IERC1155(tokenAddress);
         require(tokenContract.isApprovedForAll(seller, address(this)), "Market not have approval of token");
         _;
-    }
-
-    constructor(address _payee, uint _fee) {
-        marketPayee = _payee;
-        marketFeePercent = _fee;
     }
 
     function putOnSale(address _address, uint _id, uint _amount, uint _price) 
@@ -54,7 +46,8 @@ contract Exchange {
 
         tokenContract.safeTransferFrom(_seller, msg.sender, _id, _amount, "");
         fixedItems[_address][_id][_seller].amount = fixedItems[_address][_id][_seller].amount.sub(_amount);
-        // Pay for creator and marketplace
+        payout(_address, _id, payable(_seller), msg.value);
+
         emit ItemUpdated(
             _address, 
             _id,
@@ -71,4 +64,6 @@ contract Exchange {
         fixedItems[_address][_id][msg.sender].amount = 0;
         emit ItemUpdated(_address, _id, msg.sender, 0, fixedItems[_address][_id][msg.sender].price, SaleType.FIXED, 0);
     }
+
+    function payout(address _collection, uint _id, address payable _seller, uint _value) internal virtual;
 }

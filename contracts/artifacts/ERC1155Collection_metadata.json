@@ -275,6 +275,57 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getCreator",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDecimal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getRoyalty",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "account",
 						"type": "address"
@@ -294,29 +345,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_to",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_quantity",
-						"type": "uint256"
-					}
-				],
-				"name": "mint",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -350,6 +378,25 @@
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "royalties",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -432,6 +479,24 @@
 					}
 				],
 				"name": "setApprovalForAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "royalty",
+						"type": "uint256"
+					}
+				],
+				"name": "setRoyalty",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -686,19 +751,27 @@
 			]
 		},
 		"contracts/ERC1155Collection.sol": {
-			"keccak256": "0xf1804edc9c5384b5c5ea65ab11bbefbaa266d26906b0b3570e1d90c90e41916a",
+			"keccak256": "0x06498b049536b4759b3b00366d498e074337a6c77018b6d2b86bd64ce031191d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d03444c4f6f483e0437162b4f4f70914bfda174a1072b5375f0e15a0e7a12ec3",
-				"dweb:/ipfs/QmdrJ61rL8JnxqquDYWsrySErRUiQzaoPXcbp2vPfKxr6i"
+				"bzz-raw://ca569a73b998502ea972af57896d4b4714ba575b95cc194ea94523b04542c4f1",
+				"dweb:/ipfs/QmS2MC7Luewx1DKpUDZFnVjAo32S52uYCSJYvrCmdAkvN1"
 			]
 		},
-		"contracts/ERC1155Tradable.sol": {
-			"keccak256": "0x12545bc3c4177ff8f34c4f4531701952beb6e08f81fba5187480ebdf79970762",
+		"contracts/interfaces/ERC1155Tradable.sol": {
+			"keccak256": "0xaefe9dfc4ffee5e92cb3d126e545f58b36916b7e956359e17ff68e1da729b866",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c466011d163412ec275506f2dccb5d1315fd1acf537d7f04e133de63822d1770",
-				"dweb:/ipfs/QmYjLSzBZZevN2TPMzz6D6AJhx4fZ3mnLZU9peykdgTnUN"
+				"bzz-raw://7a7350f60f379f837e1c5ebc72b0831cea23e95076a78126c4a549ecab1cb3f2",
+				"dweb:/ipfs/QmawFgzujRuaurgWnKsuKpkukXuE7LBs6D5DeNSh5jAzzB"
+			]
+		},
+		"contracts/interfaces/ICollectionRoyalty.sol": {
+			"keccak256": "0x88bd23013699f719c13e9dda38691aee11a4abbc5a92264d3b0e97cc809612c9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b0abee151373be003846db0d185b2cb1177b845917e592c4c5131b9f6e4871a0",
+				"dweb:/ipfs/QmQhrBBG8c16JXixKGL7hpUynqNAntjpribDBdPPzeheHa"
 			]
 		}
 	},

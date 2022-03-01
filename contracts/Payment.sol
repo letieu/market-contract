@@ -1,2 +1,0 @@
-// save royal
-// payment method

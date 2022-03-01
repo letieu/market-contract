@@ -8,5 +8,5 @@ npx hardhat test
 npx hardhat node
 
 # deploy to network
-npx hardhat run scripts/deploy.js --network cronosTest
+npx hardhat run scripts/deploy.js --network cronostest
 ```
